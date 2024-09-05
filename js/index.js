@@ -4,6 +4,19 @@ const horaMinSeg = document.getElementById("hora-min-seg");
 const arrayDayWeek = ["Domingo","Segunda-feira","Terça-feira","Quarta-feira","Quinta-feira","Sexta-feira","Sabado"]
 
 
+const dialogPonto = document.getElementById("dialog-ponto");
+
+const btnRegistrarPonto = document.getElementById("btn-registrar-ponto");
+btnRegistrarPonto.addEventListener("click", () => {
+    dialogPonto.showModal();
+});
+
+
+const btnDialogFechar = document.getElementById("btn-dialog-fechar");
+btnDialogFechar.addEventListener("click", () => {
+    dialogPonto.close();
+});
+
 // Todo conjunto numérico (exceto ano) deve ter 2 dígitos (adicionar 0 se for menor q 10)
 // Retornar dia da semana por extenso (em pt-br)
 
