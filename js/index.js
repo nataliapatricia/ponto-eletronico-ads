@@ -35,16 +35,27 @@ btnDialogFechar.addEventListener("click", () => {
 
 const btnDialogRegistrarPonto = document.getElementById("btn-dialog-registrar-ponto");
 btnDialogRegistrarPonto.addEventListener("click", () => {
-    let dataCompleta = dataCompleta();
+    let data = dataCompleta();
     let hora = horaCompleta();
     let tipoPonto = document.getElementById("select-tipos-ponto").value;
 
     let ponto = {
-        "data": dataCompleta,
+        "data": data,
         "hora": hora,
         "tipo": tipoPonto,
         "id": 1
     }
+
+    // TO-DO:
+    // Somente o ultimo registro está sendo salvo
+    // como resolver isso, de modo que eu persista todos os pontos?
+    localStorage.setItem("registro", JSON.stringify(ponto));
+
+    // TO-DO:
+    // salvar o útimo tipo do ponto registrado pelo usuário
+    // fazer o select considerar esse último ponto e selecionar, por padrão
+    // o próximo possível ponto do usuário
+    // Exemplo: usuário registrou "entrada", determinar que o select apresente "intervalo" como valor padrão
 
     console.log(ponto);
     
