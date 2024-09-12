@@ -1,3 +1,6 @@
+// TO-DO:
+// Organizar código
+
 const diaSemana = document.getElementById("dia-semana");
 const diaMesAno = document.getElementById("dia-mes-ano");
 const horaMinSeg = document.getElementById("hora-min-seg");
@@ -6,6 +9,18 @@ const arrayDayWeek = ["Domingo","Segunda-feira","Terça-feira","Quarta-feira","Q
 
 const dialogPonto = document.getElementById("dialog-ponto");
 
+
+navigator.geolocation.getCurrentPosition((position) => {
+    console.log(position);
+    console.log(position.coords.latitude);
+    console.log(position.coords.longitude);
+});
+
+
+// TO-DO:
+// apresentar para o usuário a data e hora atualizados
+// atualizar a data todos os dias 00:00
+// atualizar a hora todo segundo
 const btnRegistrarPonto = document.getElementById("btn-registrar-ponto");
 btnRegistrarPonto.addEventListener("click", () => {
     dialogPonto.showModal();
@@ -17,23 +32,37 @@ btnDialogFechar.addEventListener("click", () => {
     dialogPonto.close();
 });
 
-// Todo conjunto numérico (exceto ano) deve ter 2 dígitos (adicionar 0 se for menor q 10)
-// Retornar dia da semana por extenso (em pt-br)
+
+const btnDialogRegistrarPonto = document.getElementById("btn-dialog-registrar-ponto");
+btnDialogRegistrarPonto.addEventListener("click", () => {
+    let dataCompleta = dataCompleta();
+    let hora = horaCompleta();
+    let tipoPonto = document.getElementById("select-tipos-ponto").value;
+
+    let ponto = {
+        "data": dataCompleta,
+        "hora": hora,
+        "tipo": tipoPonto,
+        "id": 1
+    }
+
+    console.log(ponto);
+    
+});
 
 function daySemana() {
-    //retornar dia da semana
     const date = new Date();
     return arrayDayWeek[date.getDay()];
 }
 
 function dataCompleta() {
     const date = new Date();
-    return date.getDate() + "/" + (date.getMonth() + 1) + "/" + date.getFullYear();
+    return String(date.getDate()).padStart(2, '0') + "/" + String(date.getMonth() + 1).padStart(2, '0') + "/" + date.getFullYear();
 }
 
 function horaCompleta() {
     const date = new Date();
-    return date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();
+    return String(date.getHours()).padStart(2, '0') + ":" + String(date.getMinutes()).padStart(2, '0') + ":" + String(date.getSeconds()).padStart(2, '0');
 }
 
 function atualizaHora() {
