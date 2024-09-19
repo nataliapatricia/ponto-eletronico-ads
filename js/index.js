@@ -23,6 +23,22 @@ navigator.geolocation.getCurrentPosition((position) => {
 // atualizar a hora todo segundo
 const btnRegistrarPonto = document.getElementById("btn-registrar-ponto");
 btnRegistrarPonto.addEventListener("click", () => {
+    // TO-DO:
+    // 1 - recuperar o select por meio de id ("select-tipos-ponto")
+    // 2 - recuperar o tipo do ultimo ponto que está salvo no localstorage
+    // 2.1 - salvamos o tipo na chave "tipoUltimoPonto"
+    // 2.2 - conseguimos recuperar um valor do localstorage com o getItem(chave)
+    
+    // 3 - Fazer uma condicional e atribuir o valor do select conforme tabela
+    // tipo ultimo ponto  |  valor select
+    // entrada            |  intervalo
+    // intervalo          |  volta-intervalo
+    // volta-intervalo    |  saida
+    // saida              |  entrada
+
+    // 3.1 para setar o valor de um select, usamos o atributo value
+    
+    
     dialogPonto.showModal();
 });
 
@@ -50,6 +66,7 @@ btnDialogRegistrarPonto.addEventListener("click", () => {
     // Somente o ultimo registro está sendo salvo
     // como resolver isso, de modo que eu persista todos os pontos?
     localStorage.setItem("registro", JSON.stringify(ponto));
+    localStorage.setItem("tipoUltimoPonto", tipoPonto);
 
     // TO-DO:
     // salvar o útimo tipo do ponto registrado pelo usuário
