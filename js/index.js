@@ -23,6 +23,8 @@ let proxPonto = {
     "saida": "entrada"
 }
 
+
+let dialogHora = document.getElementById("dialog-hora");
 // TO-DO:
 // apresentar para o usuário a data e hora atualizados
 // atualizar a data todos os dias 00:00
@@ -33,6 +35,9 @@ btnRegistrarPonto.addEventListener("click", () => {
     let ultimoPonto = localStorage.getItem("tipoUltimoPonto");
     dialogSelect.value = proxPonto[ultimoPonto];
     
+    
+    //dialogHora.textContent = horaCompleta();
+
     dialogPonto.showModal();
 });
 
@@ -65,6 +70,8 @@ function salvarRegistroLocalStorage(ponto) {
     localStorage.setItem("registro", JSON.stringify(pontos));
 }
 
+const divAlerta = document.getElementById("div-alerta");
+
 const btnDialogRegistrarPonto = document.getElementById("btn-dialog-registrar-ponto");
 btnDialogRegistrarPonto.addEventListener("click", () => {
     let data = dataCompleta();
@@ -94,6 +101,14 @@ btnDialogRegistrarPonto.addEventListener("click", () => {
 
     console.log(ponto);
     dialogPonto.close();
+
+    divAlerta.classList.remove("hidden");
+    divAlerta.classList.add("show");
+
+    setTimeout(() => {
+        divAlerta.classList.remove("show");
+        divAlerta.classList.add("hidden");
+    }, 5000);
 });
 
 function daySemana() {
@@ -115,8 +130,15 @@ function atualizaHora() {
     horaMinSeg.textContent = horaCompleta();
 }
 
+function atualizaHoraDialog() {
+    dialogHora.textContent = "Hora: " + horaCompleta();
+}
+
 atualizaHora();
 setInterval(atualizaHora, 1000);
+
+atualizaHoraDialog()
+setInterval(atualizaHoraDialog, 1000);
 
 diaSemana.textContent = daySemana();
 diaMesAno.textContent = dataCompleta();
