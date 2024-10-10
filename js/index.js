@@ -9,11 +9,21 @@ const arrayDayWeek = ["Domingo","Segunda-feira","Terça-feira","Quarta-feira","Q
 const dialogPonto = document.getElementById("dialog-ponto");
 
 
-navigator.geolocation.getCurrentPosition((position) => {
-    console.log(position);
-    console.log(position.coords.latitude);
-    console.log(position.coords.longitude);
-});
+
+function getUserLocation() {
+    return new Promise((resolve, reject) => {
+        navigator.geolocation.getCurrentPosition((position) => {
+            let userLocation = {
+                "latitude": position.coords.latitude,
+                "longitude": position.coords.longitude
+            }
+            resolve(userLocation);
+        },
+        (error) => {
+            reject(error);
+        })
+    })
+}
 
 
 let proxPonto = {
@@ -77,15 +87,18 @@ function salvarRegistroLocalStorage(ponto) {
 const divAlerta = document.getElementById("div-alerta");
 
 const btnDialogRegistrarPonto = document.getElementById("btn-dialog-registrar-ponto");
-btnDialogRegistrarPonto.addEventListener("click", () => {
+btnDialogRegistrarPonto.addEventListener("click", async () => {
     let data = dataCompleta();
     let hora = horaCompleta();
     let tipoPonto = document.getElementById("select-tipos-ponto").value;
+
+    let location = await getUserLocation();
 
     let ponto = {
         "data": data,
         "hora": hora,
         "tipo": tipoPonto,
+        "location": location,
         "id": 1
     }
 
