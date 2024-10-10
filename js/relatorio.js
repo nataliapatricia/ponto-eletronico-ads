@@ -7,16 +7,17 @@ function criarRelatorio() {
         console.log(registro);
         
         const divRegistro = document.createElement("div");
-
-        let hora = registro.hora;
-
+        
         // para cara registro, temos
         // hora: registro.hora (já está na variável hora)
         // data: registro.data
         // tipo: registro.tipo
 
-        // Escreva no seguinte formato: TIPO | DATA | HORA | 
-        divRegistro.innerHTML = "<p>Olá, Mundo! " + hora + "</p>";
+        let hora = registro.hora;
+        let data = registro.data;
+        let tipo = registro.tipo;
+
+        divRegistro.innerHTML = `<p> ${tipo} | ${data} | ${hora} </p><button>Editar</button><button>Excluir</button>`
 
         // Adicionar botões
         containerRegistros.appendChild(divRegistro);
