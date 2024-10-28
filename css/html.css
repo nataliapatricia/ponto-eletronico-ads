@@ -1,0 +1,25 @@
+.top-link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 20px;
+    width: 100%;
+}
+
+.hidden {
+    opacity: 0;
+}
+
+.show {
+    opacity: 1;
+}
+
+#div-alerta {
+    background-color: green;
+    color: white;
+    padding: 15px;
+    position: fixed;
+    right: 15px;
+    bottom: 15px;
+}

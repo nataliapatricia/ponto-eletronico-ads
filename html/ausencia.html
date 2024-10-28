@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relatório de Pontos</title>
+    <link rel="stylesheet" href="../css/html.css">
+</head>
+<body>
+    <div class="top-link">
+        <a href="../index.html">Voltar à página principal...</a>
+    </div>
+    <!-- Script -->
+    <script src="js/ausencia.js"></script>
+
+    <form id="absenceForm">
+        <!-- Campo para Selecionar a Data -->
+        <label for="absenceDate">Data:</label>
+        <input type="date" id="absenceDate"><br><br>
+    
+        <!-- Campo de Texto para Justificativa -->
+        <label for="justification">Justificativa:</label><br>
+        <textarea id="justification" rows="4" cols="50"></textarea><br><br>
+    
+        <!-- Upload de Arquivo -->
+        <label for="fileUpload">Anexo:</label>
+        <input type="file" id="fileUpload"><br><br>
+    
+        <!-- Botão de Salvar -->
+        <div id="div-btn-registrar-ausencia">
+            <button id="btn-registrar-ausencia">Registrar Justificativa de Ausência!</button>
+        </div> 
+    </form>
+    <div class="hidden" id="div-alerta">
+        <p>Justificativa de ausência registrada com sucesso!</p>
+    </div> 
+</body>
+</html>

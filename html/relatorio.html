@@ -4,10 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Relatório de Pontos</title>
-    <link rel="stylesheet" href="../css/relatorio.css">
+    <link rel="stylesheet" href="../css/html.css">
 </head>
 <body>
+    <div class="top-link">
+        <a href="../index.html">Voltar à página principal...</a>
+    </div>
+    <div class="filter-container">
+        <label for="filter-select"></label>
+        <select id="filter-select">
+            <option value="">Todos os Registros</option>
+            <option value="last-week">Última Semana</option>
+            <option value="last-month">Último Mês</option>
+        </select>
+    </div>
+    <p><br><br></p>
     <div id="container-registros"></div>
+
+    <select name="select-tipos-ponto" id="select-tipos-ponto" class="hidden">
+        <option value="entrada">Entrada</option>
+        <option value="ida-intervalo">Ida Intervalo</option>
+        <option value="volta-intervalo">Volta Intervalo</option>
+        <option value="saida">Saída</option>
+    </select>
+    <p><br></p>
+    <button id="apaga-registros">Apagar Todos os Registros</button>
     <script src="../js/relatorio.js"></script>
 </body>
 </html>

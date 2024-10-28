@@ -3,36 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sistema de controle de ponto</title>
+    <title>Sistema de Controle de Ponto</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <div class="top-link"></div>
+        <div class="center">
+            <a href="./html/relatorio.html">Ir ao relatório...</a>
+        </div>
+        <div class="center">
+            <a href="./html/ausencia.html">Justificar ausência...</a>
+        </div>
+    </div>
     <div class="data-hora">
         <p id="dia-semana"></p>
         <p id="dia-mes-ano"></p>
         <p id="hora-min-seg"></p>
     </div>
+
+    <!-- Diálogo para registrar ponto -->
     <dialog id="dialog-ponto">
         <p id="dialog-data">Data</p>
         <p id="dialog-hora">Hora</p>
         <select name="select-tipos-ponto" id="select-tipos-ponto">
             <option value="entrada">Entrada</option>
-            <option value="intervalo">Intervalo</option>
+            <option value="ida-intervalo">Ida Intervalo</option>
             <option value="volta-intervalo">Volta Intervalo</option>
             <option value="saida">Saída</option>
         </select>
         <button id="btn-dialog-registrar-ponto">Registrar Ponto</button>
-        <button id="btn-dialog-fechar">X</button>
+        <button id="btn-dialog-fechar">X</button> 
     </dialog>
-    <div id="div-btn-registrar-ponto">
-        <button id="btn-registrar-ponto">Registrar ponto!</button>
+
+    <div class="text-shade">
+        <textarea id="observacao" class="text-shade" placeholder="...observação..."></textarea>
     </div>
+
+    <!-- Botão para abrir o diálogo de registro -->
+    <div id="div-btn-registrar-ponto">
+        <button id="btn-registrar-ponto">Registrar Ponto!</button>
+    </div>
+
     <div class="hidden" id="div-alerta">
         <p>Ponto registrado com sucesso!</p>
-    </div>
-    <script src="js/index.js"></script>
+    </div>  
+
+    <!-- Script -->
+    <script src="js/index.js"></script>    
 </body>
 </html>
